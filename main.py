@@ -55,7 +55,7 @@ def cr_4_treasure(roll):
         treasure = 'you find ' + str(roll5d6Total) + 'CP'
     elif 30 < roll < 61:
         treasure = 'you find ' + str(roll4d6Total) + 'SP'
-    elif 60 < roll < 70:
+    elif 60 < roll < 71:
         treasure = 'you find ' + str(roll3d6Total) + 'EP'
     elif 70 < roll < 96:
         treasure = 'you find ' + str(roll3d6Total) + 'GP'
@@ -80,7 +80,7 @@ def cr_5_treasure(roll):
         treasure = 'you find ' + str(roll4d6Total * 100) + 'CP and ' + str(rolld6 * 10) + 'EP'
     elif 30 < roll < 61:
         treasure = 'you find ' + str(roll6d6Total * 10) + 'SP and ' + str(roll2d6Total * 10) + 'GP'
-    elif 60 < roll < 70:
+    elif 60 < roll < 71:
         treasure = 'you find ' + str(roll3d6Total * 10) + 'EP and ' + str(roll2d6Total * 10) + 'GP'
     elif 70 < roll < 96:
         treasure = 'you find ' + str(roll4d6Total * 10) + 'GP'
@@ -100,16 +100,14 @@ def cr_11_treasure(roll):
     str: The treasure description.
     """
     treasure = ''
-    if roll < 31:
-        treasure = 'you find ' + str(roll5d6Total) + 'CP'
-    elif 30 < roll < 61:
-        treasure = 'you find ' + str(roll4d6Total) + 'SP'
-    elif 60 < roll < 70:
-        treasure = 'you find ' + str(roll3d6Total) + 'EP'
-    elif 70 < roll < 96:
-        treasure = 'you find ' + str(roll3d6Total) + 'GP'
-    elif roll > 95:
-        treasure = 'you find ' + str(rolld6) + 'PP'
+    if roll < 21:
+        treasure = 'you find ' + str(roll4d6Total * 100) + 'SP and ' + str(rolld6 * 100) + 'GP'
+    elif 20 < roll < 36:
+        treasure = 'you find ' + str(rolld6 * 100) + 'EP and ' + str(rolld6 * 100) + 'GP'
+    elif 35 < roll < 76:
+        treasure = 'you find ' + str(roll2d6Total * 100) + 'GP and ' + str(rolld6 * 10) + 'PP'
+    elif roll > 75:
+        treasure = 'you find ' + str(roll2d6Total * 100) + 'GP and' + str(roll2d6Total * 10) + 'PP'
 
     return treasure
 
@@ -124,16 +122,12 @@ def cr_17_treasure(roll):
     str: The treasure description.
     """
     treasure = ''
-    if roll < 31:
-        treasure = 'you find ' + str(roll5d6Total) + 'CP'
-    elif 30 < roll < 61:
-        treasure = 'you find ' + str(roll4d6Total) + 'SP'
-    elif 60 < roll < 70:
-        treasure = 'you find ' + str(roll3d6Total) + 'EP'
-    elif 70 < roll < 96:
-        treasure = 'you find ' + str(roll3d6Total) + 'GP'
-    elif roll > 95:
-        treasure = 'you find ' + str(rolld6) + 'PP'
+    if roll < 16:
+        treasure = 'you find ' + str(roll2d6Total * 1000) + 'EP and ' + str(roll8d6Total * 100) + 'GP'
+    elif 15 < roll < 56:
+        treasure = 'you find ' + str(rolld6 * 1000) + 'GP and ' + str(rolld6 * 100) + 'PP'
+    elif roll > 55:
+        treasure = 'you find ' + str(rolld6 * 1000) + 'GP and ' + str(roll2d6Total * 100) + 'PP'
 
     return treasure
 

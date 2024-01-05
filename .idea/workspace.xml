@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5414f8ef-69cc-407e-8812-800961a89e7a" name="Changes" comment="Setup">
-      <change afterPath="$PROJECT_DIR$/.idea/pylint.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="5414f8ef-69cc-407e-8812-800961a89e7a" name="Changes" comment="Added main.py with functions for calculating treasure based on encounter CR. Updated misc.xml and workspace.xml with new project settings.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
@@ -23,6 +20,23 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "Reztroz"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="d9435fdb-2d63-48e4-b565-17eeb0d5d96f" />
+        <option name="url" value="https://github.com/Reztroz/randomLootRoller.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
@@ -67,7 +81,15 @@
       <option name="project" value="LOCAL" />
       <updated>1704402515479</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Added main.py with functions for calculating treasure based on encounter CR. Updated misc.xml and workspace.xml with new project settings.">
+      <option name="closed" value="true" />
+      <created>1704419051365</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1704419051365</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -83,6 +105,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Setup" />
-    <option name="LAST_COMMIT_MESSAGE" value="Setup" />
+    <MESSAGE value="Added main.py with functions for calculating treasure based on encounter CR. Updated misc.xml and workspace.xml with new project settings." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added main.py with functions for calculating treasure based on encounter CR. Updated misc.xml and workspace.xml with new project settings." />
   </component>
 </project>
