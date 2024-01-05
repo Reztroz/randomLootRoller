@@ -1,8 +1,67 @@
+"""
+Module: randomLootRoller
+
+This module provides functions to simulate dice rolls for generating loot based on challenge ratings (CR) in DND 5e.
+
+Functions:
+- `diceRoller(numdice, sizedice)`: Simulates the rolling of dice with specified parameters and returns the total.
+- `cr_4_treasure(roll)`: Calculate loot for CR 4 encounters based on the given roll value.
+- `cr_5_treasure(roll)`: Calculate loot for CR 5 encounters based on the given roll value.
+- `cr_11_treasure(roll)`: Calculate loot for CR 11 encounters based on the given roll value.
+- `cr_17_treasure(roll)`: Calculate loot for CR 17 encounters based on the given roll value.
+
+Usage:
+1. Import the module: `from randomLootRoller import *`
+2. Enter the CR for the encounter: `cr = int(input())`
+3. Generate a random roll: `roll = diceRoller(1, 100)`
+4. Calculate and print the treasure based on CR: `print(cr_4_treasure(roll))`, `print(cr_5_treasure(roll))`, etc.
+
+Note: The module uses the Dyce library for dice rolling. Ensure the library is installed before using this module.
+
+Examples:
+- Simulating treasure for a CR 5 encounter: `cr_5_treasure(roll)`
+"""
+
 from dyce import R, H
 from dyce.r import ValueRoller
 
 def diceRoller(numdice, sizedice):
+    """
+    Simulates the rolling of dice with specified parameters and returns the total.
 
+    Args:
+        numdice (int): The number of dice to roll.
+        sizedice (int): The number of sides on each die.
+
+    Returns:
+        int: The total result of the dice rolls.
+
+    Raises:
+        ValueError: If the combination of numdice and sizedice is not supported.
+
+    Examples:
+        >>> diceRoller(1, 100)
+        # Simulates a roll of a d100 (0-90 in 10s) and returns the total.
+
+        >>> diceRoller(1, 6)
+        # Simulates a roll of a single d6 and returns the total.
+
+        >>> diceRoller(2, 6)
+        # Simulates a roll of 2d6 and returns the total.
+
+        >>> diceRoller(4, 6)
+        # Simulates a roll of 4d6 and returns the total.
+
+        >>> diceRoller(8, 6)
+        # Simulates a roll of 8d6 and returns the total.
+
+        >>> diceRoller(3, 10)
+        Traceback (most recent call last):
+            ...
+        ValueError: Unsupported combination of numdice and sizedice.
+    """
+
+    #  Define historgram for various dice
     d10 = H(10) - 1     # works with d00 to simulate a roll of a d100 numbers 0-90 (in 10s)
     d00 = 10 * d10      # works with d10 to simulate a roll of a d100 number 0-9
     d12 = H(12)         # creates histogram for a d12
@@ -12,7 +71,7 @@ def diceRoller(numdice, sizedice):
 
     total = 0
 
-    # creates roll pools for dice
+    # Create roll pools for dice
     r_d100 = R.from_values(d00, d10) ; r_d100
 
     r_2d6 = ValueRoller(d6) + ValueRoller(d6) ; r_2d6
@@ -28,6 +87,7 @@ def diceRoller(numdice, sizedice):
     r_8d6 = (ValueRoller(d6) + ValueRoller(d6) + ValueRoller(d6) + ValueRoller(d6) + ValueRoller(d6) + ValueRoller(d6) +
          ValueRoller(d6) + ValueRoller(d6)) ; r_8d6
 
+    # Roll dice based on number of dice sides and qty of dice
     if numdice == 1 and sizedice == 100:
         total = r_d100.roll().total()
     elif numdice == 1 and sizedice == 6:
@@ -44,6 +104,8 @@ def diceRoller(numdice, sizedice):
         total = r_6d6.roll().total()
     elif  numdice == 8 and sizedice == 6:
         total = r_8d6.roll().total()
+    else:
+        raise ValueError("Unsupported combination of numdice and sizedice.")
 
     return total
 
