@@ -62,8 +62,8 @@ def diceRoller(numdice, sizedice):
     """
 
     #  Define historgram for various dice
-    d10 = H(10) - 1     # works with d00 to simulate a roll of a d100 numbers 0-90 (in 10s)
-    d00 = 10 * d10      # works with d10 to simulate a roll of a d100 number 0-9
+    d10 = H(10) - 1     # works with d00 to simulate a roll of a d100 numbers 0-9
+    d00 = 10 * d10      # works with d10 to simulate a roll of a d100 number 0-90 (in 10s
     d12 = H(12)         # creates histogram for a d12
     d8 = H(8)           # creates histogram for a d8
     d6 = H(6)           # creates histogram for a d6
@@ -87,23 +87,39 @@ def diceRoller(numdice, sizedice):
     r_8d6 = (ValueRoller(d6) + ValueRoller(d6) + ValueRoller(d6) + ValueRoller(d6) + ValueRoller(d6) + ValueRoller(d6) +
          ValueRoller(d6) + ValueRoller(d6)) ; r_8d6
 
+    r_2d4 = ValueRoller(d4) + ValueRoller(d4) ; r_2d4
+
     # Roll dice based on number of dice sides and qty of dice
     if numdice == 1 and sizedice == 100:
         total = r_d100.roll().total()
+        if total == 0:
+            total = total + 100
     elif numdice == 1 and sizedice == 6:
         total = d6.roll()
     elif numdice == 2 and sizedice == 6:
         total = r_2d6.roll().total()
-    elif  numdice == 3 and sizedice == 6:
+    elif numdice == 3 and sizedice == 6:
         total = r_3d6.roll().total()
-    elif  numdice == 4 and sizedice == 6:
+    elif numdice == 4 and sizedice == 6:
         total = r_4d6.roll().total()
-    elif  numdice == 5 and sizedice == 6:
+    elif numdice == 5 and sizedice == 6:
         total = r_5d6.roll().total()
-    elif  numdice == 6 and sizedice == 6:
+    elif numdice == 6 and sizedice == 6:
         total = r_6d6.roll().total()
-    elif  numdice == 8 and sizedice == 6:
+    elif numdice == 8 and sizedice == 6:
         total = r_8d6.roll().total()
+    elif numdice == 1 and sizedice == 4:
+        total = d4.roll()
+    elif numdice == 2 and sizedice == 4:
+        total = r_2d4.roll().total()
+    elif numdice == 1 and sizedice == 8:
+        total = d8.roll()
+    elif numdice == 1 and sizedice == 10:
+        total = d10.roll()
+        if total == 0:
+            total = total + 10
+    elif numdice == 1 and sizedice == 12:
+        total = d12.roll()
     else:
         raise ValueError("Unsupported combination of numdice and sizedice.")
 
