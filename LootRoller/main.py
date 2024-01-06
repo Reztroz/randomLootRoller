@@ -39,7 +39,6 @@ def dice_roller(num_dice, size_dice):
 
     Raises:
         ValueError: If the combination of num_dice and size_dice is not supported.
-
     """
 
     #  Define histogram for various dice
