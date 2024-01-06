@@ -40,26 +40,6 @@ def dice_roller(num_dice, size_dice):
     Raises:
         ValueError: If the combination of num_dice and size_dice is not supported.
 
-    Examples:
-        >>> dice_roller(1, 100)
-        # Simulates a roll of a d100 (0-90 in 10s) and returns the total.
-
-        >>> dice_roller(1, 6)
-        # Simulates a roll of a single d6 and returns the total.
-
-        >>> dice_roller(2, 6)
-        # Simulates a roll of 2d6 and returns the total.
-
-        >>> dice_roller(4, 6)
-        # Simulates a roll of 4d6 and returns the total.
-
-        >>> dice_roller(8, 6)
-        # Simulates a roll of 8d6 and returns the total.
-
-        >>> dice_roller(3, 10)
-        Traceback (most recent call last):
-            ...
-        ValueError: Unsupported combination of num_dice and size_dice.
     """
 
     #  Define histogram for various dice
@@ -75,20 +55,23 @@ def dice_roller(num_dice, size_dice):
     # Create roll pools for dice
     r_d100 = R.from_values(d00, d10) ; r_d100
 
-    r_2d6 = ValueRoller(d6) + ValueRoller(d6) ; r_2d6
+    r_d4 = R.from_value(d4) ; r_d4
 
-    r_3d6 = ValueRoller(d6) + ValueRoller(d6) + ValueRoller(d6) ; r_3d6
+    r_d6 = R.from_value(d6) ; r_d6
 
-    r_4d6 = ValueRoller(d6) + ValueRoller(d6) + ValueRoller(d6) + ValueRoller(d6) ; r_4d6
+    r_2d6 = 2@r_d6 ; r_2d6
 
-    r_5d6 = ValueRoller(d6) + ValueRoller(d6) + ValueRoller(d6) + ValueRoller(d6) + ValueRoller(d6) ; r_5d6
+    r_3d6 = 3@r_d6 ; r_3d6
 
-    r_6d6 = ValueRoller(d6) + ValueRoller(d6) + ValueRoller(d6) + ValueRoller(d6) + ValueRoller(d6) ; r_6d6
+    r_4d6 = 4@r_d6 ; r_4d6
 
-    r_8d6 = (ValueRoller(d6) + ValueRoller(d6) + ValueRoller(d6) + ValueRoller(d6) + ValueRoller(d6) + ValueRoller(d6) +
-         ValueRoller(d6) + ValueRoller(d6)) ; r_8d6
+    r_5d6 = 5@r_d6 ; r_5d6
 
-    r_2d4 = ValueRoller(d4) + ValueRoller(d4) ; r_2d4
+    r_6d6 = 6@r_d6 ; r_6d6
+
+    r_8d6 = 8@r_d6 ; r_8d6
+
+    r_2d4 = 2@r_d4 ; r_2d4
 
     # Roll dice based on number of dice sides and qty of dice
     if num_dice == 1 and size_dice == 100:
@@ -96,7 +79,7 @@ def dice_roller(num_dice, size_dice):
         if total == 0:
             total = total + 100
     elif num_dice == 1 and size_dice == 6:
-        total = d6.roll()
+        total = r_d6.roll().total()
     elif num_dice == 2 and size_dice == 6:
         total = r_2d6.roll().total()
     elif num_dice == 3 and size_dice == 6:
@@ -110,7 +93,7 @@ def dice_roller(num_dice, size_dice):
     elif num_dice == 8 and size_dice == 6:
         total = r_8d6.roll().total()
     elif num_dice == 1 and size_dice == 4:
-        total = d4.roll()
+        total = r_d4.roll().total()
     elif num_dice == 2 and size_dice == 4:
         total = r_2d4.roll().total()
     elif num_dice == 1 and size_dice == 8:
