@@ -221,9 +221,9 @@ roll = dice_roller(1, 100)
 
 if cr < 5:
     print(cr_4_treasure(roll))
-elif 4 < cr < 11:
+elif cr < 11:
     print(cr_5_treasure(roll))
-elif 10 < cr < 17:
+elif cr < 17:
     print(cr_11_treasure(roll))
-elif cr > 16:
+else :
     print(cr_17_treasure(roll))
